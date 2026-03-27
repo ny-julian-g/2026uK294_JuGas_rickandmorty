@@ -1,1 +1,0 @@
-# 2026uK294_JuGas_rickandmorty
