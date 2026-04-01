@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LogIn from "./LogIn";
 import AllObjects from "./AllObjects";
 import DetailView from "./DetailView";
+import EditObject from "./EditObject";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -23,9 +24,10 @@ function App() {
           path="/characters"
           element={isLoggedIn ? <AllObjects /> : <Navigate to="/login" />}
         />
-        <Route path="/" element={<Navigate to="/characters" />} />
+        <Route path="/characters/:id/edit" element={isLoggedIn ? <EditObject/> : <Navigate to="/login" />} />
         <Route path="/characters/:id"
          element={isLoggedIn ? <DetailView /> : <Navigate to="/login" />} />
+        <Route path="/" element={<Navigate to="/characters" />} />
       </Routes>
     </BrowserRouter>
   );
