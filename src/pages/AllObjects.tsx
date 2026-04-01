@@ -6,21 +6,26 @@ function AllObjects() {
   const [characters, setCharacters] = useState<RickAndMortyChar[]>([]);
 
   useEffect(() => {
-    ServerService.getCharacters().then(setCharacters).catch(console.error);
+    ServerService.getCharacters().then(setCharacters);
   }, []);
 
+  const handleDeleteCharacter = async (id: string | number) => {
+  try {
+    await ServerService.deleteCharacter(id);
+    setCharacters((prev) => prev.filter((char) => char.id.toString() !== id.toString()));
+  } catch (error) {
+    console.error("Delete failed", error);
+  }
+};;
+
   return (
-    <div className="characters-container">
+    <div className="grid">
       {characters.map((char) => (
-        <a>
-          <ShowObjectDumb
-            key={char.id}
-            id={char.id.toString()}
-            name={char.name}
-            image={char.image}
-            created={char.created}
-          />
-        </a>
+        <ShowObjectDumb
+          key={char.id}
+          {...char}
+          onDelete={handleDeleteCharacter}
+        />
       ))}
     </div>
   );

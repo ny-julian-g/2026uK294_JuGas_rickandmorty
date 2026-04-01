@@ -1,7 +1,7 @@
 import { api } from "./Api";
 
 export interface RickAndMortyChar {
-  id: number;
+  id: number | string;
   name: string;
   image: string;
   created: string;
@@ -18,8 +18,12 @@ export const ServerService = {
     return response.data;
   },
 
-  getCharacterById: async (id: string) => {
+  getCharacterById: async (id: string | number) => {
     const response = await api.get(`/rickandmorty/${id}`);
     return response.data;
   },
+
+  deleteCharacter: async (id: string | number) => {
+    await api.delete(`/rickandmorty/${id}`);
+  }
 };
