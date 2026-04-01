@@ -26,6 +26,7 @@ export const ServerService = {
   deleteCharacter: async (id: string | number) => {
     await api.delete(`/rickandmorty/${id}`);
   },
+  
   updateCharacterById: async (id: string | number, data: Partial<RickAndMortyChar>) => {
     const response = await api.patch(`/rickandmorty/${id}`, data);
     return response.data;
