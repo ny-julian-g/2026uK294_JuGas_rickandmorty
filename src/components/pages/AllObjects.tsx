@@ -5,7 +5,7 @@ import { ServerService, type RickAndMortyChar } from "../../service/ServerServic
 
 function AllObjects() {
   const [characters, setCharacters] = useState<RickAndMortyChar[]>([]);
-  const navigate = useNavigate(); // 2. Hook initialisieren
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     ServerService.getCharacters().then(setCharacters);

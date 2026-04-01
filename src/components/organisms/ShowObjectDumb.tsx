@@ -30,11 +30,11 @@ function ShowObjectDumb({ id, name, image, created, onDelete, onEdit }: ShowObje
         to={`/characters/${id}`}
         style={{ textDecoration: "none", color: "inherit" }}
       >
-        <img src={image} alt={name} />
+        <img src={image} alt={name} width="250em" style={{borderRadius: "1em"}}/>
         <h2>{name}</h2>
         <p>Created at: {new Date(created).toLocaleDateString()}</p>
       </Link>
-      <button onClick={handleDeleteClick}>Delete</button>
+      <button onClick={handleDeleteClick} style={{marginRight: "1em"}}>Delete</button>
       <button onClick={handleEditClick}>Edit</button>
     </div>
   );
