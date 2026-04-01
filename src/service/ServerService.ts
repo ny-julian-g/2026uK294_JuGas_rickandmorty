@@ -29,5 +29,13 @@ export const ServerService = {
   updateCharacterById: async (id: string | number, data: Partial<RickAndMortyChar>) => {
     const response = await api.patch(`/rickandmorty/${id}`, data);
     return response.data;
-  }
+  },
+
+  createCharacter: async (data: Omit<RickAndMortyChar, "id" | "created">) => {
+  const response = await api.post("/rickandmorty", {
+    ...data,
+    created: new Date().toISOString() // Datum automatisch setzen
+  });
+  return response.data;
+}
 };
