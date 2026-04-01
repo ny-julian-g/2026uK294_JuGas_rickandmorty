@@ -17,4 +17,9 @@ export const ServerService = {
     const response = await api.get("/rickandmorty");
     return response.data;
   },
+
+  getCharacterById: async (id: string) => {
+    const response = await api.get(`/rickandmorty/${id}`);
+    return response.data;
+  },
 };

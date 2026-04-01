@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LogIn from "./LogIn";
 import AllObjects from "./AllObjects";
+import DetailView from "./DetailView";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -23,6 +24,8 @@ function App() {
           element={isLoggedIn ? <AllObjects /> : <Navigate to="/login" />}
         />
         <Route path="/" element={<Navigate to="/characters" />} />
+        <Route path="/characters/:id"
+         element={isLoggedIn ? <DetailView /> : <Navigate to="/login" />} />
       </Routes>
     </BrowserRouter>
   );
