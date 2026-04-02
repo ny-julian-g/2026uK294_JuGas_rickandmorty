@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // 1. Import hinzufügen
+import { useNavigate } from "react-router-dom"; 
 import ShowObjectDumb from "../organisms/ShowObjectDumb";
 import { ServerService, type RickAndMortyChar } from "../../service/ServerService";
 

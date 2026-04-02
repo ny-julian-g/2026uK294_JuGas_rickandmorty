@@ -7,7 +7,7 @@ function Header() {
   
   const handleLogout = () => {
     localStorage.removeItem("token");
-    window.location.href = "/login"; // Hard Reload um alle States zu resetten
+    navigate("/login");
   };
 
   const manageTitle = () => {
@@ -15,7 +15,7 @@ function Header() {
     if (pathname === "/characters/new") return "Create Character";
     if (pathname === "/login") return "Please Log In";
     if (pathname.includes("/edit")) return "Edit Character";
-    if (pathname.match(/\/characters\/\d+$/)) return "Character Details"; // Erkennt /characters/1
+    if (pathname.match(/\/characters\/\d+$/)) return "Character Details"; 
     
     return "Rick and Morty App";
   };

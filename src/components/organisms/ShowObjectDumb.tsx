@@ -10,7 +10,7 @@ function ShowObjectDumb({ id, name, image, created, onDelete, onEdit }: ShowObje
   
   const handleDeleteClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    e.stopPropagation();
+    e.stopPropagation(); 
     
     const confirmed = window.confirm(`Are you sure you want to delete ${name}?`);
     if (confirmed) {
